@@ -20,13 +20,19 @@
 \usepackage{graphicx}       % for pictures
 \usepackage{microtype}      % for microtypography stuff
 \usepackage{xcolor}         % for colours
-
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
 
 % margin and column widths
 % ------------------------
 
 % margins
-\newgeometry{left=15mm,right=15mm,top=15mm,bottom=15mm}
+\newgeometry{left=15mm,right=15mm,top=13.5mm,bottom=13.5mm}
 
 % width of the gap between left and right column
 \newlength{\cvcolumngapwidth}
@@ -89,16 +95,16 @@
 
 % vertical space after personal info and standard CV items
 \newlength{\cvafteritemskipamount}
-\setlength{\cvafteritemskipamount}{5mm plus 1.25mm minus 1.25mm}
+\setlength{\cvafteritemskipamount}{4mm plus 1.25mm minus 1.25mm}
 
 % vertical space after sections
 \newlength{\cvaftersectionskipamount}
-\setlength{\cvaftersectionskipamount}{2mm plus 0.5mm minus 0.5mm}
+\setlength{\cvaftersectionskipamount}{1.5mm plus 0.5mm minus 0.5mm}
 
 % extra vertical space to be used when a section starts with an item with a heading (e.g. in the skills section),
 % so that the heading does not follow the section name too closely
 \newlength{\cvbetweensectionandheadingextraskipamount}
-\setlength{\cvbetweensectionandheadingextraskipamount}{1mm plus 0.25mm minus 0.25mm}
+\setlength{\cvbetweensectionandheadingextraskipamount}{0.75mm plus 0.25mm minus 0.25mm}
 
 
 % intra-item spacing
@@ -106,15 +112,15 @@
 
 % vertical space after name
 \newlength{\cvafternameskipamount}
-\setlength{\cvafternameskipamount}{3mm plus 0.75mm minus 0.75mm}
+\setlength{\cvafternameskipamount}{2.5mm plus 0.75mm minus 0.75mm}
 
 % vertical space after personal info lines
 \newlength{\cvafterpersonalinfolineskipamount}
-\setlength{\cvafterpersonalinfolineskipamount}{2mm plus 0.5mm minus 0.5mm}
+\setlength{\cvafterpersonalinfolineskipamount}{1.75mm plus 0.5mm minus 0.5mm}
 
 % vertical space after titles
 \newlength{\cvaftertitleskipamount}
-\setlength{\cvaftertitleskipamount}{1mm plus 0.25mm minus 0.25mm}
+\setlength{\cvaftertitleskipamount}{0.75mm plus 0.25mm minus 0.25mm}
 
 % value to be used as parskip in right column of CV items and itemsep in lists (same for both, for consistency)
 \newlength{\cvparskip}
@@ -237,7 +243,7 @@
 
 \cvpersonalinfo{
     % photo
-    \includegraphics[height=36mm]{new.jpg}
+    \includegraphics[height=36mm]{new2.jpg}
 }{
     % name
     \cvname{Devansh Singh Rathore}
@@ -254,17 +260,17 @@
 
     % email address
     \cvpersonalinfolinewithicon{height=4mm}{070-envelop.pdf}{
-        rathoredevansh08@gmail.com
+        \href{mailto:rathoredevansh08@gmail.com}{rathoredevansh08@gmail.com}
     }
 
     % LinkedIn account
     \cvpersonalinfolinewithicon{height=4mm}{458-linkedin.pdf}{
-        https://www.linkedin.com/in/devansh-singh-rathore-b378b914b/
+        \url{https://www.linkedin.com/in/devansh-singh-rathore-b378b914b/}
     }
     
     % Github account
     \cvpersonalinfolinewithicon{height=4mm}{github.png.pdf}{
-        https://github.com/RathoreDevansh08
+        \url{https://github.com/RathoreDevansh08}
     }
 
     % date of birth
@@ -305,15 +311,8 @@
     From Indian Institute of Technology, Palakkad, Kerala
 
     \begin{itemize}[leftmargin=*]
-        \item CGPA: 8.56 (Current)
-        \item ELECTIVE COURSES: 
-        \begin{itemize}[leftmargin=*]
-        \item (CS5613) Cryptography
-        \item (CS5502) Functional Programming
-        \item (CS5007) Deep Learning
-        \item (MA2030) Abstract Algebra
-        \item (MA2032) Numerical Analysis
-        \end{itemize}
+        \item CGPA: 8.31 (Current)
+        \item Elective Courses: Cryptography | Functional Programming | Digital Image Processing | Abstract Algebra | Numerical Analysis 
     \end{itemize}
 }
 
@@ -326,8 +325,8 @@
     From O.P. Jindal Modern School, Hisar, Haryana
 
     \begin{itemize}[leftmargin=*]
-        \item CBSE Board
-        \item Scored: 91.4\%
+        \item Board: Central Board of Secondary Education (CBSE)
+        \item Percentage: 91.4\%
     \end{itemize}
 }
 
@@ -340,11 +339,26 @@
     From Delhi Public School, Aligarh, Uttar Pradesh
 
     \begin{itemize}[leftmargin=*]
-        \item CBSE Board
+        \item Board: Central Board of Secondary Education (CBSE)
         \item CGPA: 10
     \end{itemize}
 }
 
+
+\cvsection{EXPERIENCE}
+
+\vspace{\cvbetweensectionandheadingextraskipamount}
+
+\cvitem{
+    \cvdurationstyle{June 2020 -- Aug 2020}
+}{
+    \cvtitle{GE Healthcare - Software Intern}
+
+    \begin{itemize}[leftmargin=*]
+        \item Exploration of PyCharm Plugin Development on IntelliJ IDEA, using Gradle, Java.
+        \item Development of Federated Learning server-client paradigm using Tensorflow, RESTful-service (REST API), Python Flask, MySQL.
+    \end{itemize}
+}
 
 % skills
 % ------
@@ -357,47 +371,39 @@
     \cvheadingstyle{Programming Languages}
 }{
     
-    C++, C, Python, Javascript, Haskell, Octave
+    C++, C, Python, Javascript, Haskell, Standard ML (Functional Programming)
 
 }
 \cvitem{
     \cvheadingstyle{Competitive Programming}
 }{
     
-    
-   Codeforces, CodeChef, UVa, Hackerrank
-    
+   \href{https://codeforces.com/profile/DSR}{Codeforces}, \href{https://www.codechef.com/users/devansh08}{CodeChef}, \href{https://uhunt.onlinejudge.org/id/1019683}{UVa}, \href{https://www.hackerrank.com/rathoredevansh}{Hackerrank}
 }
 
 \cvitem{
     \cvheadingstyle{Deep Learning}
 }{
-   
     Completed Deep Learning online specialisation course, offered by Stanford University at coursera.org
-    
 }
 
 \cvitem{
     \cvheadingstyle{Machine Learning}
 }{
-   
     Completed Machine Learning online course, offered by Stanford University at coursera.org
-    
 }
 
 \cvitem{
     \cvheadingstyle{Web Development and Database}
 }{
-    
-   CSS, HTML, MySQL
-    
+   Python Flask, REST API, CSS, HTML, MySQL
 }
 
 \cvitem{
     \cvheadingstyle{Image Processing and OpenCV}
 }{
     
-   Studied OpenCV documentries online, as well as in Data Analysis Club 
+    Source: Digital Image Processing course (EE5005), OpenCV documentaries online, Data Analysis Club 
     
 }
 
@@ -405,7 +411,7 @@
     \cvheadingstyle{Basic Android Tracks}
 }{
     
-   Completed Basic Android Tracks online course offered at Google India Scholarship program 2018 at udacity.com
+   Completed Basic Android Tracks online course offered in Google India Scholarship program 2018 at udacity.com
 }
 
 \cvsection{PROJECTS}
@@ -413,14 +419,26 @@
 \vspace{\cvbetweensectionandheadingextraskipamount}
 
 \cvitem{
+    \cvdurationstyle{Jan 2020 -- July 2020}
+}{
+    \cvtitle{Language Server for Standard ML language}
+
+    \begin{itemize}[leftmargin=*]
+        \item Built a Language Server for Standard ML, with editing features like autocomplete, hover for IDEs.
+
+        \item \href{https://bitbucket.org/Shruti_Umat/language-server-for-sml/src/master/}{Bitbucket Repository Link}
+    \end{itemize}
+}
+
+
+\cvitem{
     \cvdurationstyle{May 2019 -- Nov 2019}
 }{
     \cvtitle{Petrichor-2020 Fest website and CA portal development  }
 
     \begin{itemize}[leftmargin=*]
-        \item Developed front end of Petrichor-2020 (Annual Techno-Cultural fest of IIT Palakkad) website and its CA- Portal
-        \item Link (Main): https://www.petrichor-iitpkd.com/
-        \item Link (CA Portal): http://www.petrichor-iitpkd.com/cap
+        \item Developed front end of Petrichor-2020 (Annual Techno-Cultural fest of IIT Palakkad) website and its CA- Portal.
+        \item \href{http://petrichor-ca.herokuapp.com/}{Website Link}
     \end{itemize}
 }
 
@@ -429,9 +447,8 @@
 }{
     \cvtitle{Garbage Management Mini Project using Verilog}
     \begin{itemize}[leftmargin=*]
-        \item Developed an efficient system (using Dijkstra's shortest path algorithm) for garbage collection
-using Verilog.
-        \item Link: https://github.com/RathoreDevansh08/Garbage\_Management\_MiniProject
+        \item Simulation of an efficient garbage collection system (using Dijkstra's shortest path algorithm) - Verilog
+        \item \href{https://github.com/RathoreDevansh08/Garbage\_Management\_MiniProject}{Github Repository Link} 
         
     \end{itemize}
 }
@@ -442,8 +459,8 @@ using Verilog.
     \cvtitle{Face Recognition Project}
 
     \begin{itemize}[leftmargin=*]
-        \item Face recognition program coded in python, that recognises an image and predicts the person in image. This was meant to be used for the attendence system at IIT hostels. 
-        \item Link: https://github.com/RathoreDevansh08/CSpuare\_FaceRecognition
+        \item Developed a Face recognition Python program for automated attendance system that recognizes and predicts the person in image. Built using Deep Learning methods (CNN, Triplet Loss algorithm).
+        \item \href{https://github.com/RathoreDevansh08/CSpuare\_FaceRecognition}{Github Repository Link}
         
     \end{itemize}
 }
@@ -453,8 +470,8 @@ using Verilog.
 }{
     \cvtitle{Cartoonifier using OpenCV}
     \begin{itemize}[leftmargin=*]
-        \item In this project, we coded a python program to cartoonify an image using image processing and Opencv, with use of certain noise removing filters and edge detection methods. 
-        \item Link: https://github.com/RathoreDevansh08/Cartoonifier
+        \item Developed a program to cartoonify an image using image processing and OpenCV (Bilateral filter, Laplacian filter, Sobel Edge Detection).
+        \item \href{https://github.com/RathoreDevansh08/Cartoonifier}{Github Repository Link}
         
     \end{itemize}
 }
@@ -464,8 +481,8 @@ using Verilog.
 }{
     \cvtitle{Online E - Challan system}
     \begin{itemize}[leftmargin=*]
-        \item Online E- Challan system made using concepts of Web Developement, Machine Learning.
-        \item Link: http://iit.pscquestion.in/
+        \item Developed an automated online e - challan web application with additional ML applications, for Smart India Hackathon 2018.
+        \item \href{http://iit.pscquestion.in/}{Website Link}
         
     \end{itemize}
 }
@@ -479,7 +496,8 @@ using Verilog.
 \cvitem{
     \cvdurationstyle{Nov 2018 -- Dec 2018}
 }{
-    \cvtitle{Inter IIT Tech meet 2018 (Star Cluster Identifier, PlutoX Hackathon) at IIT Bombay}
+
+    \cvtitle{ Inter IIT Tech meet 2018 (Star Cluster Identifier, PlutoX Hackathon) at IIT Bombay}
 }
 
 \cvitem{
@@ -518,11 +536,13 @@ using Verilog.
     \cvheadingstyle{}
 }{
     
-    \begin{itemize}
+    \begin{itemize}[leftmargin=*]
+    
+        \item \textbf{Google Hashcode 2020:} Team achieved 1436th place(world ranking) in Hash Code 2020 Online Qualification round
         \item \textbf{ICPC 2019-20:} Our team achieved rank 244 in online preliminary round and qualified for onsite round. Achieved rank 28 in Asia region Kanpur site, rank 251 in Asia region Amritapuri site.
         \item \textbf{Codechef Snackdown 2019:} Qualified for online contest round 1B
         \item \textbf{Smart India Hackathon 2018:} Qualified for grand final round of SIH-2018
-        \item \textbf{Google India Scholarship Challenge 2018:} Selected for the program, was offered Basic Android Tracks online course
+        \item \textbf{Google India Scholarship Challenge 2018:} Selected for the program, completed Basic Android Tracks online course
         
     \end{itemize}
 
@@ -562,7 +582,7 @@ using Verilog.
     \cvheadingstyle{}
 }{
     
-    \begin{itemize}
+    \begin{itemize}[leftmargin=*]
         \item \textbf{Chess:} Active participant in institute Chess competitions
         \item \textbf{NSO (Table Tennis):} Completed 40 hours of Table Tennis training
         \item \textbf{EBSB cultural program:} Participant
